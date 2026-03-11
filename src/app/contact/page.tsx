@@ -17,7 +17,7 @@ export default function ContactPage() {
               Email:{" "}
               <a
                 className="text-white underline underline-offset-4"
-                href="mailto:hello@findthecuttingedge.com"
+                href="mailto:support@findthecuttingedge.com"
               >
                 support@findthecuttingedge.com
               </a>

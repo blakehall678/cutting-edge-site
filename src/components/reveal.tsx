@@ -1,27 +1,45 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
-import type { ReactNode } from "react";
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
-const variants: Variants = {
-  hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
-  show: { opacity: 1, y: 0, filter: "blur(0px)" },
+type RevealProps = {
+  children: ReactNode;
+  delay?: number;
+  duration?: number;
+  direction?: "up" | "left" | "right";
 };
 
 export function Reveal({
   children,
   delay = 0,
-}: {
-  children: ReactNode;
-  delay?: number;
-}) {
+  duration = 1.4,
+  direction = "up",
+}: RevealProps) {
+  const variants = {
+    hidden: {
+      opacity: 0,
+      y: direction === "up" ? 40 : 0,
+      x: direction === "left" ? -120 : direction === "right" ? 120 : 0,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: 0,
+    },
+  };
+
   return (
     <motion.div
-      variants={variants}
       initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.7, ease: [0.2, 0.8, 0.2, 1], delay }}
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration,
+        delay,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      variants={variants}
     >
       {children}
     </motion.div>

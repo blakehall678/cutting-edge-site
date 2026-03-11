@@ -26,7 +26,7 @@ export function Technical() {
             </div>
             <div className="flex items-center justify-between">
               <span>Compatibility</span>
-              <span className="text-white/90">Most razors</span>
+              <span className="text-white/90">Fits most safety, cartridge, and disposable razors</span>
             </div>
           </div>
         </div>

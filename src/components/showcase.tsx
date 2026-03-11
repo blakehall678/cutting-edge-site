@@ -10,7 +10,7 @@ export function Showcase() {
         <div className="lg:sticky lg:top-32 h-fit">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
             <Image
-              src="/images/product-hero.png"
+              src="/images/bathroom-shot.png"
               alt="The Cutting Edge product"
               width={800}
               height={800}
