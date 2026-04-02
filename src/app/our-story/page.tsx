@@ -66,6 +66,7 @@ export default function OurStoryPage() {
                     width={900}
                     height={600}
                     className="w-full h-auto rounded-2xl"
+                    unoptimized
                   />
                 </div>
                 <div className="timeline-text">
@@ -90,14 +91,15 @@ export default function OurStoryPage() {
                     width={900}
                     height={600}
                     className="w-full h-auto rounded-2xl"
+                    unoptimized
                   />
                 </div>
                 <div className="timeline-text">
                   <h3>The Proof of Concept</h3>
                   <p>
                     We began exploring a better solution — something designed
-                    specifically to clean razors effectively, easily,
-                    and ready for everyday use.
+                    specifically to clean razors effectively, easily, and ready
+                    for everyday use.
                   </p>
                 </div>
               </div>
@@ -114,14 +116,15 @@ export default function OurStoryPage() {
                     width={900}
                     height={600}
                     className="w-full h-auto rounded-2xl"
+                    unoptimized
                   />
                 </div>
                 <div className="timeline-text">
                   <h3>Prototype Testing</h3>
                   <p>
                     Early versions helped us test the shape, usability, and
-                    cleaning performance of the product. Each round taught us what
-                    needed to improve and what was already working.
+                    cleaning performance of the product. Each round taught us
+                    what needed to improve and what was already working.
                   </p>
                 </div>
               </div>
@@ -138,12 +141,14 @@ export default function OurStoryPage() {
                     width={900}
                     height={600}
                     className="w-full h-auto rounded-2xl"
+                    unoptimized
                   />
                 </div>
                 <div className="timeline-text">
                   <h3>Final Design</h3>
                   <p>
-                    From testing various materials and designs, we found the right balance of efficiancy, ease of use, and esthetics.
+                    From testing various materials and designs, we found the
+                    right balance of efficiency, ease of use, and aesthetics.
                   </p>
                 </div>
               </div>
@@ -160,13 +165,14 @@ export default function OurStoryPage() {
                     width={900}
                     height={600}
                     className="w-full h-auto rounded-2xl"
+                    unoptimized
                   />
                 </div>
                 <div className="timeline-text">
                   <h3>The Launch</h3>
                   <p>
-                    After refining the design, we created a razor cleaner built to
-                    make razor care simpler, cleaner, and more effective for
+                    After refining the design, we created a razor cleaner built
+                    to make razor care simpler, cleaner, and more effective for
                     everyday routines.
                   </p>
                 </div>
