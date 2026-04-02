@@ -1,3 +1,4 @@
+import { NewsletterPopup } from "@/components/newsletter-popup";
 import { Hero } from "@/components/hero";
 import { Nav } from "@/components/nav";
 import { Features } from "@/components/features";
@@ -10,14 +11,11 @@ import { Preorder } from "@/components/preorder";
 import { CheckoutStatus } from "@/components/checkout-status";
 import { Footer } from "@/components/footer";
 
-
-
-
 export default function HomePage() {
   return (
     <>
-    
-    <CheckoutStatus />
+      <NewsletterPopup />
+      <CheckoutStatus />
       <Nav />
       <main>
         <Hero />
