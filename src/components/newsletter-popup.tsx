@@ -72,7 +72,7 @@ export function NewsletterPopup() {
           width: "100%",
           maxWidth: "720px",
           background: "#f3f3f3",
-          color: "#2f3742",
+          color: "#000000",
           borderRadius: "24px",
           padding: "40px 36px",
           boxShadow: "0 30px 80px rgba(0,0,0,0.35)",
@@ -90,7 +90,7 @@ export function NewsletterPopup() {
             border: "none",
             fontSize: "48px",
             lineHeight: 1,
-            color: "#3b4350",
+            color: "#000000",
             cursor: "pointer",
           }}
         >
@@ -104,7 +104,7 @@ export function NewsletterPopup() {
             lineHeight: 0.95,
             fontWeight: 700,
             letterSpacing: "-0.03em",
-            color: "#3b4350",
+            color: "#000000",
             maxWidth: "560px",
           }}
         >
@@ -155,9 +155,9 @@ export function NewsletterPopup() {
               width: "100%",
               padding: "18px 20px",
               borderRadius: "18px",
-              border: "2px solid #596170",
+              border: "2px solid #000000",
               background: "transparent",
-              color: "#3b4350",
+              color: "#000000",
               fontSize: "1.5rem",
               outline: "none",
               boxSizing: "border-box",
@@ -171,7 +171,7 @@ export function NewsletterPopup() {
               padding: "18px 20px",
               borderRadius: "18px",
               border: "none",
-              background: "#3b4350",
+              background: "#000000",
               color: "#fff",
               fontSize: "1.5rem",
               fontWeight: 600,
@@ -188,7 +188,7 @@ export function NewsletterPopup() {
             marginBottom: 0,
             fontSize: "1rem",
             lineHeight: 1.8,
-            color: "#8b8f96",
+            color: "#000000",
             maxWidth: "620px",
           }}
         >

@@ -18,7 +18,7 @@ export function Technical() {
             </div>
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <span>Cleaning</span>
-              <span className="text-white/90">Multi-jet rinse</span>
+              <span className="text-white/90">Multi-jet rinse + cleaning brush</span>
             </div>
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <span>Use</span>

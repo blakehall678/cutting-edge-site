@@ -3,9 +3,9 @@ import { Hero } from "@/components/hero";
 import { Nav } from "@/components/nav";
 import { Features } from "@/components/features";
 import { Showcase } from "@/components/showcase";
+import { HowItWorks } from "@/components/how-it-works";
 import { Comparison } from "@/components/comparison";
 import { Technical } from "@/components/technical";
-import { HowItWorks } from "@/components/how-it-works";
 import { Shipping } from "@/components/shipping";
 import { Preorder } from "@/components/preorder";
 import { CheckoutStatus } from "@/components/checkout-status";
@@ -21,8 +21,8 @@ export default function HomePage() {
         <Hero />
         <Features />
         <Showcase />
-        <Technical />
         <HowItWorks />
+        <Technical />
         <Comparison />
         <Shipping />
         <Preorder />
