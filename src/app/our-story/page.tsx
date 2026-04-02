@@ -127,7 +127,7 @@ export default function OurStoryPage() {
               </div>
             </div>
 
-<               div className="timeline-item left">
+            <div className="timeline-item left">
               <div className="timeline-year">2025</div>
               <div className="timeline-dot"></div>
               <div className="timeline-content">
