@@ -134,7 +134,7 @@ export default function OurStoryPage() {
                 <div className="timeline-image">
                   <Image
                     src="/images/brush-handle.jpg"
-                    alt="Story image 3"
+                    alt="Story image 4"
                     width={900}
                     height={600}
                     className="w-full h-auto rounded-2xl"
@@ -156,7 +156,7 @@ export default function OurStoryPage() {
                 <div className="timeline-image">
                   <Image
                     src="/images/ce-shower.png"
-                    alt="Story image 4"
+                    alt="Story image 5"
                     width={900}
                     height={600}
                     className="w-full h-auto rounded-2xl"
