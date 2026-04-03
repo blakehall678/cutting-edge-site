@@ -57,9 +57,9 @@ export function Shipping() {
                 Questions about fit, compatibility, or pre-orders? Email{" "}
                 <a
                   className="text-white underline underline-offset-4"
-                  href="mailto:hello@findthecuttingedge.com"
+                  href="mailto:support@findthecuttingedge.com"
                 >
-                  hello@findthecuttingedge.com
+                  support@findthecuttingedge.com
                 </a>
                 .
               </p>
