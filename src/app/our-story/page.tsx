@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
 import { Nav } from "@/components/nav";
 
 export default function OurStoryPage() {
@@ -60,13 +59,10 @@ export default function OurStoryPage() {
               <div className="timeline-dot"></div>
               <div className="timeline-content">
                 <div className="timeline-image">
-                  <Image
+                  <img
                     src="/images/razor-closeup.jpg"
                     alt="Story image 1"
-                    width={900}
-                    height={600}
                     className="w-full h-auto rounded-2xl"
-                    unoptimized
                   />
                 </div>
                 <div className="timeline-text">
@@ -85,13 +81,10 @@ export default function OurStoryPage() {
               <div className="timeline-dot"></div>
               <div className="timeline-content">
                 <div className="timeline-image">
-                  <Image
+                  <img
                     src="/images/first-prototype.png"
                     alt="Story image 2"
-                    width={900}
-                    height={600}
                     className="w-full h-auto rounded-2xl"
-                    unoptimized
                   />
                 </div>
                 <div className="timeline-text">
@@ -110,13 +103,10 @@ export default function OurStoryPage() {
               <div className="timeline-dot"></div>
               <div className="timeline-content">
                 <div className="timeline-image">
-                  <Image
+                  <img
                     src="/images/brushes.png"
                     alt="Story image 3"
-                    width={900}
-                    height={600}
                     className="w-full h-auto rounded-2xl"
-                    unoptimized
                   />
                 </div>
                 <div className="timeline-text">
@@ -135,13 +125,10 @@ export default function OurStoryPage() {
               <div className="timeline-dot"></div>
               <div className="timeline-content">
                 <div className="timeline-image">
-                  <Image
+                  <img
                     src="/images/brush-handle.jpg"
                     alt="Story image 4"
-                    width={900}
-                    height={600}
                     className="w-full h-auto rounded-2xl"
-                    unoptimized
                   />
                 </div>
                 <div className="timeline-text">
@@ -159,13 +146,10 @@ export default function OurStoryPage() {
               <div className="timeline-dot"></div>
               <div className="timeline-content">
                 <div className="timeline-image">
-                  <Image
+                  <img
                     src="/images/ce-shower.png"
                     alt="Story image 5"
-                    width={900}
-                    height={600}
                     className="w-full h-auto rounded-2xl"
-                    unoptimized
                   />
                 </div>
                 <div className="timeline-text">
