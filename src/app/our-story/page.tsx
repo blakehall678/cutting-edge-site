@@ -82,7 +82,7 @@ export default function OurStoryPage() {
               <div className="timeline-content">
                 <div className="timeline-image">
                   <img
-                    src="/images/first-prototype.png"
+                    src="/images/first-prototype.jpg"
                     alt="Story image 2"
                     className="w-full h-auto rounded-2xl"
                   />
@@ -147,7 +147,7 @@ export default function OurStoryPage() {
               <div className="timeline-content">
                 <div className="timeline-image">
                   <img
-                    src="/images/ce-shower.png"
+                    src="/images/ce-shower.jpg"
                     alt="Story image 5"
                     className="w-full h-auto rounded-2xl"
                   />
