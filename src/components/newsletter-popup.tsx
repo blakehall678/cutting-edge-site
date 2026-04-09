@@ -6,10 +6,13 @@ export function NewsletterPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const dismissed = localStorage.getItem("newsletter-dismissed");
-    if (dismissed === "true") return;
+    const subscribed = localStorage.getItem("newsletter-subscribed");
+
+    if (dismissed === "true" || subscribed === "true") return;
 
     const timer = setTimeout(() => {
       setIsOpen(true);
@@ -23,8 +26,17 @@ export function NewsletterPopup() {
     localStorage.setItem("newsletter-dismissed", "true");
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    const cleanedEmail = email.trim().toLowerCase();
+
+    if (!cleanedEmail) {
+      setStatus("Please enter your email.");
+      return;
+    }
+
+    setIsSubmitting(true);
     setStatus("Submitting...");
 
     try {
@@ -33,21 +45,28 @@ export function NewsletterPopup() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email: cleanedEmail }),
       });
 
       const data = await res.json();
 
       if (res.ok) {
-        setStatus("Thanks! We’ll keep you updated.");
+        setStatus(
+          data.message || "Thanks! Check your inbox to confirm your subscription."
+        );
         setEmail("");
-        localStorage.setItem("newsletter-dismissed", "true");
-        setTimeout(() => setIsOpen(false), 1200);
+        localStorage.setItem("newsletter-subscribed", "true");
+
+        setTimeout(() => {
+          setIsOpen(false);
+        }, 1500);
       } else {
-        setStatus(data.error || "Something went wrong.");
+        setStatus(data?.error || "Something went wrong.");
       }
     } catch {
-      setStatus("Something went wrong.");
+      setStatus("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -82,6 +101,7 @@ export function NewsletterPopup() {
         <button
           onClick={closePopup}
           aria-label="Close popup"
+          disabled={isSubmitting}
           style={{
             position: "absolute",
             top: "16px",
@@ -91,7 +111,8 @@ export function NewsletterPopup() {
             fontSize: "48px",
             lineHeight: 1,
             color: "#000000",
-            cursor: "pointer",
+            cursor: isSubmitting ? "default" : "pointer",
+            opacity: isSubmitting ? 0.5 : 1,
           }}
         >
           ×
@@ -151,6 +172,9 @@ export function NewsletterPopup() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            disabled={isSubmitting}
+            autoComplete="email"
+            aria-label="Email address"
             style={{
               width: "100%",
               padding: "18px 20px",
@@ -161,11 +185,13 @@ export function NewsletterPopup() {
               fontSize: "1.5rem",
               outline: "none",
               boxSizing: "border-box",
+              opacity: isSubmitting ? 0.7 : 1,
             }}
           />
 
           <button
             type="submit"
+            disabled={isSubmitting}
             style={{
               width: "100%",
               padding: "18px 20px",
@@ -175,10 +201,11 @@ export function NewsletterPopup() {
               color: "#fff",
               fontSize: "1.5rem",
               fontWeight: 600,
-              cursor: "pointer",
+              cursor: isSubmitting ? "default" : "pointer",
+              opacity: isSubmitting ? 0.8 : 1,
             }}
           >
-            Continue
+            {isSubmitting ? "Submitting..." : "Continue"}
           </button>
         </form>
 
@@ -198,11 +225,15 @@ export function NewsletterPopup() {
 
         {status && (
           <p
+            role="status"
+            aria-live="polite"
             style={{
               marginTop: "14px",
               marginBottom: 0,
               fontSize: "1rem",
-              color: "#5c6270",
+              color: status.toLowerCase().includes("thanks")
+                ? "#1f7a1f"
+                : "#5c6270",
             }}
           >
             {status}
