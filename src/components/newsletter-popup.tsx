@@ -9,11 +9,6 @@ export function NewsletterPopup() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    const dismissed = localStorage.getItem("newsletter-dismissed");
-    const subscribed = localStorage.getItem("newsletter-subscribed");
-
-    if (dismissed === "true" || subscribed === "true") return;
-
     const timer = setTimeout(() => {
       setIsOpen(true);
     }, 10000);
@@ -23,7 +18,6 @@ export function NewsletterPopup() {
 
   function closePopup() {
     setIsOpen(false);
-    localStorage.setItem("newsletter-dismissed", "true");
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -51,11 +45,8 @@ export function NewsletterPopup() {
       const data = await res.json();
 
       if (res.ok) {
-        setStatus(
-          data.message || "Thanks! Check your inbox to confirm your subscription."
-        );
+        setStatus(data.message || "Welcome to the Cutting Edge family!");
         setEmail("");
-        localStorage.setItem("newsletter-subscribed", "true");
 
         setTimeout(() => {
           setIsOpen(false);
@@ -231,7 +222,7 @@ export function NewsletterPopup() {
               marginTop: "14px",
               marginBottom: 0,
               fontSize: "1rem",
-              color: status.toLowerCase().includes("thanks")
+              color: status.toLowerCase().includes("welcome")
                 ? "#1f7a1f"
                 : "#5c6270",
             }}
