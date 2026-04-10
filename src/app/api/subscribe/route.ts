@@ -20,17 +20,27 @@ export async function POST(req: Request) {
 
     const cleanedEmail = email.trim().toLowerCase();
 
+    const forwardedFor = req.headers.get("x-forwarded-for");
+    const realIp = req.headers.get("x-real-ip");
+
+    const ipAddress =
+      forwardedFor?.split(",")[0]?.trim() ||
+      realIp?.trim() ||
+      undefined;
+
     const response = await fetch("https://api.buttondown.email/v1/subscribers", {
       method: "POST",
       headers: {
         Authorization: `Token ${process.env.BUTTONDOWN_API_KEY}`,
         "Content-Type": "application/json",
         "X-API-Version": "2026-04-01",
+        "X-Buttondown-Collision-Behavior": "overwrite",
       },
       body: JSON.stringify({
         email_address: cleanedEmail,
         tags: ["launch-popup"],
         type: "regular",
+        ...(ipAddress ? { ip_address: ipAddress } : {}),
       }),
     });
 
@@ -45,15 +55,19 @@ export async function POST(req: Request) {
         if (errorText) errorMessage = errorText;
       }
 
+      const lowered = errorMessage.toLowerCase();
+
       if (
         response.status === 400 ||
         response.status === 409 ||
-        errorMessage.toLowerCase().includes("already")
+        lowered.includes("already") ||
+        lowered.includes("exists")
       ) {
-        return NextResponse.json(
-          { error: "This email is already subscribed or already exists." },
-          { status: response.status }
-        );
+        return NextResponse.json({
+          success: true,
+          alreadyOnList: true,
+          message: "You're already on the list — welcome back!",
+        });
       }
 
       return NextResponse.json(
@@ -64,6 +78,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       success: true,
+      alreadyOnList: false,
       message: "Welcome to the Cutting Edge family!",
     });
   } catch {
