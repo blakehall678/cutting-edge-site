@@ -50,7 +50,7 @@ export function NewsletterPopup() {
 
         setTimeout(() => {
           setIsOpen(false);
-        }, 1500);
+        }, 10000);
       } else {
         setStatus(data?.error || "Something went wrong.");
       }
