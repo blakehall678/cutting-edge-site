@@ -30,6 +30,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         email_address: cleanedEmail,
         tags: ["launch-popup"],
+        type: "regular",
       }),
     });
 
@@ -38,10 +39,7 @@ export async function POST(req: Request) {
 
       try {
         const errorData = await response.json();
-        errorMessage =
-          errorData?.detail ||
-          errorData?.error ||
-          errorMessage;
+        errorMessage = errorData?.detail || errorData?.error || errorMessage;
       } catch {
         const errorText = await response.text();
         if (errorText) errorMessage = errorText;
@@ -66,7 +64,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       success: true,
-      message: "Thanks! Check your inbox to confirm your subscription.",
+      message: "Welcome to the Cutting Edge family!",
     });
   } catch {
     return NextResponse.json(
