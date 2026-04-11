@@ -22,7 +22,6 @@ export async function POST(req: Request) {
 
     const forwardedFor = req.headers.get("x-forwarded-for");
     const realIp = req.headers.get("x-real-ip");
-
     const ipAddress =
       forwardedFor?.split(",")[0]?.trim() ||
       realIp?.trim() ||
@@ -44,25 +43,38 @@ export async function POST(req: Request) {
       }),
     });
 
-    if (!response.ok) {
-      let errorMessage = "Failed to subscribe.";
+    const responseText = await response.text();
 
+    let errorMessage = "Failed to subscribe.";
+    let errorCode = "";
+
+    if (responseText) {
       try {
-        const errorData = await response.json();
-        errorMessage = errorData?.detail || errorData?.error || errorMessage;
+        const errorData = JSON.parse(responseText);
+        errorMessage =
+          errorData?.detail ||
+          errorData?.error ||
+          errorMessage;
+        errorCode = errorData?.code || "";
       } catch {
-        const errorText = await response.text();
-        if (errorText) errorMessage = errorText;
+        errorMessage = responseText;
       }
+    }
 
+    if (!response.ok) {
       const lowered = errorMessage.toLowerCase();
+      const loweredCode = errorCode.toLowerCase();
 
-      if (
-        response.status === 400 ||
+      const isDuplicate =
         response.status === 409 ||
-        lowered.includes("already") ||
-        lowered.includes("exists")
-      ) {
+        lowered.includes("already exists") ||
+        lowered.includes("already subscribed") ||
+        lowered.includes("already on the list") ||
+        loweredCode.includes("already") ||
+        loweredCode.includes("exists") ||
+        loweredCode.includes("collision");
+
+      if (isDuplicate) {
         return NextResponse.json({
           success: true,
           alreadyOnList: true,
@@ -71,7 +83,7 @@ export async function POST(req: Request) {
       }
 
       return NextResponse.json(
-        { error: errorMessage },
+        { error: errorMessage || "Failed to subscribe." },
         { status: response.status }
       );
     }
