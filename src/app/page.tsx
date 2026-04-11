@@ -8,6 +8,7 @@ import { Comparison } from "@/components/comparison";
 import { Technical } from "@/components/technical";
 import { Shipping } from "@/components/shipping";
 import { Preorder } from "@/components/preorder";
+import { UpdatesSignup } from "@/components/updates-signup";
 import { CheckoutStatus } from "@/components/checkout-status";
 import { Footer } from "@/components/footer";
 
@@ -25,7 +26,8 @@ export default function HomePage() {
         <Technical />
         <Comparison />
         <Shipping />
-        <Preorder />
+    
+        <UpdatesSignup />
         <Footer />
       </main>
     </>

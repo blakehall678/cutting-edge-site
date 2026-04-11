@@ -34,6 +34,7 @@ export async function POST(req: Request) {
         "Content-Type": "application/json",
         "X-API-Version": "2026-04-01",
         "X-Buttondown-Collision-Behavior": "overwrite",
+        "X-Buttondown-Bypass-Firewall": "true",
       },
       body: JSON.stringify({
         email_address: cleanedEmail,
