@@ -35,11 +35,10 @@ export function UpdatesSignup() {
   return (
     <section
       id="updates"
-      className="bg-black text-white px-6 py-20 border-t border-white/10"
+      className="scroll-mt-24 bg-black text-white px-6 py-20 border-t border-white/10"
     >
       <div className="mx-auto max-w-4xl text-center">
         <p className="text-sm uppercase tracking-[0.2em] text-white/50 mb-4">
-          
         </p>
 
         <h2 className="text-4xl md:text-5xl font-semibold leading-tight">
@@ -47,9 +46,8 @@ export function UpdatesSignup() {
         </h2>
 
         <p className="mt-5 text-lg text-white/70 max-w-2xl mx-auto">
-          Join the list to be
-         the first to hear about development updates, launch timing, and when
-          orders open.
+          Join the list to be the first to hear about development updates, launch
+          timing, and when orders open.
         </p>
 
         <form

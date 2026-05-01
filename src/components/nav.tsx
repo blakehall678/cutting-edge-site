@@ -37,8 +37,8 @@ export function Nav() {
           <Link href="/our-story" className="hover:text-white transition">
             Our Story
           </Link>
-          <Link href="/#preorder" className="hover:text-white transition">
-            Pre-Order
+          <Link href="/#updates" className="hover:text-white transition">
+            Updates
           </Link>
         </nav>
 
@@ -80,11 +80,11 @@ export function Nav() {
               Our Story
             </Link>
             <Link
-              href="/#preorder"
+              href="/#updates"
               onClick={closeMenu}
               className="py-2"
             >
-              Pre-Order
+              Updates
             </Link>
           </nav>
         </div>
