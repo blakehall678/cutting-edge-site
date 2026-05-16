@@ -58,7 +58,7 @@ export function Features() {
                 key={`${feature.title}-${index}`}
                 className="grid items-center gap-10 md:grid-cols-2 md:gap-16 lg:gap-24"
               >
-                <div className={isReversed ? "order-2 md:order-2" : "order-1 md:order-1"}>
+                <div className="order-1 md:order-1">
                   <Reveal
                     delay={0.08 + index * 0.08}
                     duration={1.5}
@@ -74,7 +74,7 @@ export function Features() {
                   </Reveal>
                 </div>
 
-                <div className={isReversed ? "order-1 md:order-1" : "order-2 md:order-2"}>
+                <div className="order-2 md:order-2">
                   <Reveal
                     delay={0.18 + index * 0.08}
                     duration={1.5}

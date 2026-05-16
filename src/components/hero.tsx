@@ -33,14 +33,13 @@ export function Hero() {
           </p>
 
           <a
-            href="#preorder"
+            href="/#how"
             className="inline-block mt-8 rounded-full bg-white text-black px-6 py-3 font-medium"
           >
-            Pre-order for $100
+            Learn more
           </a>
         </div>
 
-        {/* PARALLAX IMAGE */}
         <ParallaxY from={60} to={-60}>
           <div className="relative">
             <Image
